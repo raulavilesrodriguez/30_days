@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.thirtydays.model.Recipe
 import com.example.thirtydays.ui.theme.ThirtyDaysTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    RecipeApp()
                 }
             }
         }
@@ -30,17 +31,27 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
+fun RecipeApp() {
+    val recipe = Recipe(
+        R.string.recipe2,
+        R.string.description2,
+        R.drawable.chicken2
     )
+    RecipeItem(index = 1, recipe = recipe)
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun GreetingPreview() {
-    ThirtyDaysTheme {
-        Greeting("Android")
+fun RecipeTotalPreview() {
+    ThirtyDaysTheme(darkTheme = false) {
+        RecipeApp()
+    }
+}
+
+@Preview
+@Composable
+fun RecipeDarkPreview(){
+    ThirtyDaysTheme(darkTheme = true) {
+        RecipeApp()
     }
 }

@@ -3,6 +3,6 @@
     <dimen name="elevation_small">2dp</dimen>
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">16dp</dimen>
-    <dimen name="image_size">72dp</dimen>
+    <dimen name="image_size">100dp</dimen>
     <dimen name="radius_small">8dp</dimen>
 </resources>

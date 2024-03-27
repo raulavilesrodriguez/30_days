@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Thirty days</string>
+    <string name="title_day">Day %d</string>
     <string name="recipe1">Spaghetti Carbonara</string>
     <string name="description1">Classic Italian pasta dish with creamy sauce made from eggs, cheese, pancetta, and black pepper.</string>
     <string name="recipe2">Chicken Tikka Masala</string>

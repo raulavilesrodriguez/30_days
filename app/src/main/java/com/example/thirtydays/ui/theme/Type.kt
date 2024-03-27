@@ -32,7 +32,7 @@ val Typography = Typography(
         fontSize = 30.sp
     ),
     displayMedium = TextStyle(
-        fontFamily = Sriracha,
+        fontFamily = Cabin,
         fontWeight = FontWeight.Bold,
         fontSize = 20.sp
     ),
