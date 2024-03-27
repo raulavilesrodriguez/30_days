@@ -4,13 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.thirtydays.model.Recipe
+import com.example.thirtydays.model.RecipesRepository
 import com.example.thirtydays.ui.theme.ThirtyDaysTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,12 +37,35 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun RecipeApp() {
-    val recipe = Recipe(
-        R.string.recipe2,
-        R.string.description2,
-        R.drawable.chicken2
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
+            TopAppBar()
+        }
+    ) {
+        val recipes = RecipesRepository.recipes
+        RecipeList(recipes = recipes, contentPadding = it)
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopAppBar(modifier: Modifier = Modifier){
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = stringResource(id = R.string.app_name),
+                style = MaterialTheme.typography.displayLarge
+            )
+        },
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.tertiary,
+            titleContentColor = MaterialTheme.colorScheme.onPrimary,
+            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+        ),
+        modifier = modifier
     )
-    RecipeItem(index = 1, recipe = recipe)
 }
 
 @Preview
